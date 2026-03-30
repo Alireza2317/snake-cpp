@@ -5,8 +5,6 @@ using namespace snake;
 
 Snake::Snake(SnakeBody body) : parts(std::move(body)) {
 }
-Snake::~Snake() {
-}
 
 common::Position Snake::get_moved_head() {
 	Position new_head = parts.at(0);

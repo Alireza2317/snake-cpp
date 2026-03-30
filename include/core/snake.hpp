@@ -16,7 +16,6 @@ class Snake {
 	Direction direction{Direction::Right};
 
 	explicit Snake(SnakeBody body);
-	~Snake();
 
 	void move();
 	void turn(Direction new_direction);
