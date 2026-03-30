@@ -12,7 +12,7 @@ namespace snake::common {
 		}
 	};
 
-	enum class Color { White, Black, Gray, Yellow, Orange, Green, Blue, Red, Violet, Cyan };
+	enum class Color { White, Black, Gray, Yellow, Orange, Green, Blue, Red, Violet, Cyan, Transparent };
 
 	enum class Direction { Left, Up, Right, Down };
 } // namespace snake::common
