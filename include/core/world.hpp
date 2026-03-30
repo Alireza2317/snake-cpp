@@ -16,6 +16,7 @@ class World {
 	std::mt19937 m_rng;
 
   public:
+	World(uint16_t width, uint16_t height, std::vector<Position> obstacles);
 	bool is_in_bounds(Position pos);
 	void spawn_food(const std::vector<Position>& exclude_positions);
 	void render(IRenderer& renderer);
