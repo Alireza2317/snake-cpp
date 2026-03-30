@@ -1,5 +1,8 @@
 #include "core/snake.hpp"
 
+Snake::Snake(SnakeBody body) : parts(std::move(body)) {
+}
+
 void Snake::move_head() {
 	Position head = parts.at(0);
 	switch (direction) {
