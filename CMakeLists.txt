@@ -11,6 +11,7 @@ set(
 	src/main.cpp
 	src/core/game.cpp
 	src/core/snake.cpp
+	src/core/world.cpp
 	src/render/sfml_renderer.cpp
 )
 
