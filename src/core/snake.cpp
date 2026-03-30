@@ -1,28 +1,35 @@
 #include "core/snake.hpp"
+#include "common/types.hpp"
+
+using namespace snake;
 
 Snake::Snake(SnakeBody body) : parts(std::move(body)) {
 }
+Snake::~Snake() {
+}
 
-void Snake::move_head() {
-	Position head = parts.at(0);
+common::Position Snake::get_moved_head() {
+	Position new_head = parts.at(0);
 	switch (direction) {
 		case Direction::Left:
-			head.x--;
+			new_head.x--;
 			break;
 		case Direction::Up:
-			head.y--;
+			new_head.y--;
 			break;
 		case Direction::Right:
-			head.x++;
+			new_head.x++;
 			break;
 		case Direction::Down:
-			head.y++;
+			new_head.y++;
 			break;
 	}
+	return new_head;
 }
 
 void Snake::move() {
-	move_head();
+	Position new_head_pos = get_moved_head();
+	parts.insert(parts.begin(), new_head_pos);
 
 	m_left_over_tail = parts.back();
 	parts.pop_back();

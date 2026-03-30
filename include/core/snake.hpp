@@ -9,7 +9,7 @@ class Snake {
 
   private:
 	Position m_left_over_tail;
-	void move_head();
+	Position get_moved_head();
 
   public:
 	SnakeBody parts;
