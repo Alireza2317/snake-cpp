@@ -1,3 +1,7 @@
+#include "render/sfml_renderer.hpp"
+#include "common/config.hpp"
+#include "common/types.hpp"
+#include <SFML/Graphics.hpp>
 
 static sf::Color to_sf_color(snake::common::Color color) {
 	using Color_snake = snake::common::Color;
@@ -28,3 +32,32 @@ static sf::Color to_sf_color(snake::common::Color color) {
 	return sf::Color::Black;
 }
 
+SFMLRenderer::SFMLRenderer(uint16_t width, uint16_t height, const std::string& title)
+	: m_window(sf::VideoMode(width, height), title) {
+}
+void SFMLRenderer::clear() {
+	m_window.clear(sf::Color::Black);
+}
+void SFMLRenderer::draw_square(snake::common::Position pos, snake::common::Color color) {
+	constexpr auto TILE_SIZE = snake::config::game::TILE_SIZE;
+
+	sf::RectangleShape shape({TILE_SIZE, TILE_SIZE});
+	shape.setPosition(pos.x * TILE_SIZE, pos.y * TILE_SIZE);
+	shape.setFillColor(to_sf_color(color));
+
+	m_window.draw(shape);
+}
+void SFMLRenderer::display() {
+	m_window.display();
+}
+bool SFMLRenderer::is_open() const {
+	return m_window.isOpen();
+}
+void SFMLRenderer::handle_events() {
+	sf::Event event;
+	while (m_window.pollEvent(event)) {
+		if (event.type == sf::Event::Closed) {
+			m_window.close();
+		}
+	}
+}
