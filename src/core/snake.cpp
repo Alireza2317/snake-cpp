@@ -24,7 +24,7 @@ void Snake::move_head() {
 void Snake::move() {
 	move_head();
 
-	left_over_tail = parts.back();
+	m_left_over_tail = parts.back();
 	parts.pop_back();
 }
 
@@ -36,4 +36,8 @@ void Snake::turn(Direction new_direction) {
 	if (is_horizontal(new_direction) != is_horizontal(direction)) {
 		direction = new_direction;
 	}
+}
+
+void Snake::grow() {
+	parts.push_back(m_left_over_tail);
 }

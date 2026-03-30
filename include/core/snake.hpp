@@ -8,7 +8,7 @@ class Snake {
 	using SnakeBody = std::vector<Position>;
 
   private:
-	Position left_over_tail;
+	Position m_left_over_tail;
 	void move_head();
 
   public:
@@ -20,4 +20,5 @@ class Snake {
 
 	void move();
 	void turn(Direction new_direction);
+	void grow();
 };
