@@ -9,7 +9,7 @@ World::World(uint16_t width, uint16_t height, std::vector<Position> obstacles)
 	: m_width(width), m_height(height), m_obstacles(std::move(obstacles)) {
 }
 
-bool World::is_in_bounds(Position pos) {
+bool World::is_in_bounds(Position pos) const {
 	return pos.x >= 0 and pos.y >= 0 and pos.x < m_width and pos.y < m_height;
 }
 
@@ -17,7 +17,7 @@ bool World::is_member(const Position& pos, std::vector<Position> positions) {
 	return std::find(positions.begin(), positions.end(), pos) != positions.end();
 }
 
-bool World::is_occupied(Position pos, const std::vector<Position>& exclude_positions) {
+bool World::is_occupied(Position pos, const std::vector<Position>& exclude_positions) const {
 	if (not is_in_bounds(pos)) {
 		std::println("Position ({}, {}) is out of bounds!", pos.x, pos.y);
 		return true;
