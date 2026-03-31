@@ -1,6 +1,8 @@
-#include <SFML/Graphics.hpp>
-#include <print>
+#include "app/application.hpp"
+
 int main() {
+	App app;
+	app.run();
 
 	return 0;
 }
