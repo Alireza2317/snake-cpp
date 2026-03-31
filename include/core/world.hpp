@@ -15,7 +15,7 @@ class World {
 
   public:
 	Position food;
-	World(uint16_t width, uint16_t height, std::vector<Position> obstacles);
+	World(uint16_t width, uint16_t height, std::vector<Position> obstacles = {});
 	static bool is_member(const Position& pos, std::vector<Position> positions);
 	bool is_occupied(Position pos, const std::vector<Position>& exclude_positions = {}) const;
 	bool is_in_bounds(Position pos) const;
