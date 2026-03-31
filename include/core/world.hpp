@@ -11,10 +11,10 @@ class World {
 	uint16_t m_width;
 	uint16_t m_height;
 	std::vector<Position> m_obstacles;
-	Position m_food;
 	std::mt19937 m_rng = std::mt19937{std::random_device{}()};
 
   public:
+	Position food;
 	World(uint16_t width, uint16_t height, std::vector<Position> obstacles);
 	static bool is_member(const Position& pos, std::vector<Position> positions);
 	bool is_occupied(Position pos, const std::vector<Position>& exclude_positions = {}) const;
