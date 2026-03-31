@@ -14,7 +14,7 @@ bool World::is_in_bounds(Position pos) const {
 }
 
 bool World::is_member(const Position& pos, std::vector<Position> positions) {
-	return std::find(positions.begin(), positions.end(), pos) != positions.end();
+	return std::ranges::contains(positions, pos);
 }
 
 bool World::is_occupied(Position pos, const std::vector<Position>& exclude_positions) const {
@@ -26,9 +26,10 @@ bool World::is_occupied(Position pos, const std::vector<Position>& exclude_posit
 }
 
 void World::spawn_food(const std::vector<Position>& exclude_positions) {
+	std::uniform_int_distribution<int16_t> rnd_x(0, m_width - 1);
+	std::uniform_int_distribution<int16_t> rnd_y(0, m_height - 1);
+
 	do {
-		std::uniform_int_distribution<int16_t> rnd_x(0, m_width - 1);
-		std::uniform_int_distribution<int16_t> rnd_y(0, m_width - 1);
 		food = {rnd_x(m_rng), rnd_y(m_rng)};
 
 	} while (is_occupied(food, exclude_positions));
