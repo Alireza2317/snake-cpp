@@ -29,8 +29,10 @@ void World::spawn_food(const std::vector<Position>& exclude_positions) {
 	std::uniform_int_distribution<int16_t> rnd_x(0, m_width - 1);
 	std::uniform_int_distribution<int16_t> rnd_y(0, m_height - 1);
 
+	Position old_food = food;
+
 	do {
 		food = {rnd_x(m_rng), rnd_y(m_rng)};
 
-	} while (is_occupied(food, exclude_positions));
+	} while (is_occupied(food, exclude_positions) or food == old_food);
 }
