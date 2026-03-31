@@ -5,6 +5,9 @@
 #include "core/world.hpp"
 #include "interfaces/renderer.hpp"
 
+SnakeGame::SnakeGame() : SnakeGame(Snake(), World()) {
+}
+
 SnakeGame::SnakeGame(Snake snake, World world)
 	: m_snake(std::move(snake)), m_world(std::move(world)) {
 	m_world.spawn_food(m_snake.parts);

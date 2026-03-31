@@ -23,6 +23,7 @@ class SnakeGame {
 	GameState m_state{GameState::Running};
 
   public:
+	SnakeGame();
 	SnakeGame(Snake snake, World world);
 	StepResult step();
 	void render(IRenderer& renderer);
