@@ -15,6 +15,7 @@ class Snake {
 	SnakeBody parts;
 	Direction direction{Direction::Right};
 
+	explicit Snake();
 	explicit Snake(SnakeBody body);
 
 	void move();

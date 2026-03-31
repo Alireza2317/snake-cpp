@@ -1,8 +1,18 @@
 #include "core/snake.hpp"
+#include "common/config.hpp"
 #include "common/types.hpp"
 
 using namespace snake;
 
+Snake::Snake() {
+	for (int16_t i = 0; i < config::game::INITIAL_SNAKE_LENGTH; i++) {
+		if (i >= config::game::NUM_TILES_X - 1) {
+			break;
+		}
+
+		parts.push_back({.x = i, .y = 0});
+	}
+}
 Snake::Snake(SnakeBody body) : parts(std::move(body)) {
 }
 
