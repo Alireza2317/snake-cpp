@@ -10,5 +10,5 @@ class IRenderer {
 	virtual void display() = 0;
 
 	virtual bool is_open() const = 0;
-	virtual void handle_events() = 0;
+	virtual snake::common::Command poll_command() = 0;
 };

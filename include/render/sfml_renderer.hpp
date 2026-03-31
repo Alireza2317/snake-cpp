@@ -6,6 +6,7 @@
 class SFMLRenderer : public IRenderer {
   private:
 	sf::RenderWindow m_window;
+
   public:
 	SFMLRenderer(uint16_t width, uint16_t height, const std::string& title);
 
@@ -14,5 +15,5 @@ class SFMLRenderer : public IRenderer {
 	virtual void display() override;
 
 	virtual bool is_open() const override;
-	virtual void handle_events() override;
+	virtual snake::common::Command poll_command() override;
 };
