@@ -28,7 +28,7 @@ namespace snake::common {
 
 	enum class Direction { Left, Up, Right, Down };
 
-	enum class GameState { Running, Paused, Won, HitWall, HitSelf, Quit };
+	enum class GameState { Running, Paused, GameOver };
 
-	enum class Command { None, MoveLeft, MoveUP, MoveRight, MoveDown, Pause, Quit };
+	enum class Command { None, MoveLeft, MoveUp, MoveRight, MoveDown, TogglePause, Quit };
 } // namespace snake::common
