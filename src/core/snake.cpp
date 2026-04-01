@@ -56,3 +56,12 @@ void Snake::turn(Direction new_direction) {
 void Snake::grow() {
 	parts.push_back(m_left_over_tail);
 }
+
+bool Snake::hit_self() {
+	for (auto it = parts.begin() + 1; it < parts.end(); it++) {
+		if (parts.front() == *it) {
+			return true;
+		}
+	}
+	return false;
+}

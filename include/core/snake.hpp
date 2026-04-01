@@ -21,4 +21,5 @@ class Snake {
 	void move();
 	void turn(Direction new_direction);
 	void grow();
+	bool hit_self();
 };
