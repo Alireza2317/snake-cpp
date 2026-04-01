@@ -5,7 +5,7 @@
 using namespace snake;
 
 Snake::Snake() {
-	for (int16_t i = 0; i < config::game::INITIAL_SNAKE_LENGTH; i++) {
+	for (int16_t i = config::game::INITIAL_SNAKE_LENGTH - 1; i >= 0; i--) {
 		if (i >= config::game::NUM_TILES_X - 1) {
 			break;
 		}
