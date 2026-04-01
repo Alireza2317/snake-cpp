@@ -13,7 +13,7 @@ class SFMLRenderer : public IRenderer {
 	virtual void clear() override;
 	virtual void draw_square(snake::common::Position pos, snake::common::Color color) override;
 	virtual void display() override;
-
+	virtual void close() override;
 	virtual bool is_open() const override;
 	virtual snake::common::Command poll_command() override;
 };
