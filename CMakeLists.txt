@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
+# Define a macro with the path to the project root
+add_definitions(-DPROJECT_ROOT_PATH="${CMAKE_SOURCE_DIR}")
+
+
 set(
 	SOURCES
 	src/main.cpp

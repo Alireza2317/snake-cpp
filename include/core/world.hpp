@@ -21,4 +21,7 @@ class World {
 	bool is_occupied(Position pos, const std::vector<Position>& exclude_positions = {}) const;
 	bool is_in_bounds(Position pos) const;
 	void spawn_food(const std::vector<Position>& exclude_positions);
+	uint16_t width() const;
+	uint16_t height() const;
+	const std::vector<Position>& obstacles() const;
 };

@@ -1,5 +1,6 @@
 #include "core/world.hpp"
 #include "common/config.hpp"
+#include "common/types.hpp"
 #include <algorithm>
 #include <cstdint>
 #include <print>
@@ -37,4 +38,16 @@ void World::spawn_food(const std::vector<Position>& exclude_positions) {
 		food = {rnd_x(m_rng), rnd_y(m_rng)};
 
 	} while (is_occupied(food, exclude_positions) or food == old_food);
+}
+
+uint16_t World::width() const {
+	return m_width;
+}
+
+uint16_t World::height() const {
+	return m_height;
+}
+
+const std::vector<snake::common::Position>& World::obstacles() const {
+	return m_obstacles;
 }
