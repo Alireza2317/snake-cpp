@@ -12,7 +12,7 @@ class IRenderer {
 		const std::string& text,
 		snake::common::Position pos,
 		uint8_t size,
-		snake::common::Color color);
+		snake::common::Color color) = 0;
 	virtual void display() = 0;
 	virtual void close() = 0;
 	virtual bool is_open() const = 0;

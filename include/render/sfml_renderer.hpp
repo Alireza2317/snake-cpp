@@ -2,10 +2,12 @@
 #include "common/types.hpp"
 #include "interfaces/renderer.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
 
 class SFMLRenderer : public IRenderer {
   private:
 	sf::RenderWindow m_window;
+	sf::Font m_font;
 
   public:
 	SFMLRenderer(uint16_t width, uint16_t height, const std::string& title);

@@ -2,6 +2,7 @@
 #include "common/config.hpp"
 #include "common/types.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
@@ -56,8 +57,11 @@ void SFMLRenderer::put_text(
 	snake::common::Position pos,
 	uint8_t size,
 	snake::common::Color color) {
-		
+	sf::Text sf_txt{text, m_font, size};
+	sf_txt.setPosition(pos.x, pos.y);
+	sf_txt.setFillColor(to_sf_color(color));
 
+	m_window.draw(sf_txt);
 }
 void SFMLRenderer::display() {
 	m_window.display();
