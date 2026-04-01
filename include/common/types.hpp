@@ -30,5 +30,5 @@ namespace snake::common {
 
 	enum class GameState { Running, Paused, GameOver };
 
-	enum class Command { None, MoveLeft, MoveUp, MoveRight, MoveDown, TogglePause, Quit };
+	enum class Command { None, MoveLeft, MoveUp, MoveRight, MoveDown, TogglePause, Restart, Quit };
 } // namespace snake::common

@@ -30,7 +30,6 @@ inline App::App()
 inline void App::run() {
 	sf::Clock clock;
 	sf::Time time = sf::Time::Zero;
-
 	const sf::Time time_per_step = sf::seconds(snake::config::game::DELAY);
 
 	while (m_renderer->is_open()) {
@@ -41,6 +40,10 @@ inline void App::run() {
 		if (cmd == snake::common::Command::Quit) {
 			m_renderer->close();
 			break;
+		}
+		if (cmd == snake::common::Command::Restart) {
+			m_game.reset();
+			continue;
 		}
 
 		m_game.handle_command(cmd);

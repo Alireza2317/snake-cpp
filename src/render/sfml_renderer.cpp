@@ -62,7 +62,7 @@ snake::common::Command SFMLRenderer::poll_command() {
 		if (event.type == sf::Event::Closed) {
 			close();
 		}
-		if (event.type == sf::Event::KeyReleased) {
+		if (event.type == sf::Event::KeyPressed) {
 			switch (event.key.code) {
 				case sf::Keyboard::Up:
 				case sf::Keyboard::W:
@@ -78,6 +78,8 @@ snake::common::Command SFMLRenderer::poll_command() {
 					return snake::common::Command::MoveLeft;
 				case sf::Keyboard::P:
 					return snake::common::Command::TogglePause;
+				case sf::Keyboard::R:
+					return snake::common::Command::Restart;
 				case sf::Keyboard::Escape:
 				case sf::Keyboard::Q:
 					return snake::common::Command::Quit;
