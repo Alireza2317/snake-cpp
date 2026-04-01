@@ -22,7 +22,6 @@ bool World::is_member(const Position& pos, std::vector<Position> positions) {
 
 bool World::is_occupied(Position pos, const std::vector<Position>& exclude_positions) const {
 	if (not is_in_bounds(pos)) {
-		std::println("Position ({}, {}) is out of bounds!", pos.x, pos.y);
 		return true;
 	}
 	return is_member(pos, m_obstacles) or is_member(pos, exclude_positions);
