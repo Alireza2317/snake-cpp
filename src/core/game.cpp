@@ -24,8 +24,9 @@ StepResult SnakeGame::step() {
 	Position head = m_snake.parts.front();
 
 	// check collisions
-	if (not m_world.is_occupied(head)) {
+	if (m_world.is_occupied(head) or m_snake.hit_self()) {
 		result.collision = true;
+		m_state = GameState::GameOver;
 		return result;
 	}
 
@@ -96,8 +97,8 @@ void SnakeGame::reset() {
 void SnakeGame::render(IRenderer& renderer) {
 	renderer.draw_square(m_world.food, snake::config::colors::FOOD);
 
-	renderer.draw_square(m_snake.parts.front(), snake::config::colors::SNAKE_HEAD);
 	for (auto it = m_snake.parts.begin() + 1; it < m_snake.parts.end(); it++) {
 		renderer.draw_square(*it, snake::config::colors::SNAKE);
 	}
+	renderer.draw_square(m_snake.parts.front(), snake::config::colors::SNAKE_HEAD);
 }
