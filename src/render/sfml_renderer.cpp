@@ -50,6 +50,15 @@ void SFMLRenderer::draw_square(snake::common::Position pos, snake::common::Color
 
 	m_window.draw(shape);
 }
+
+void SFMLRenderer::put_text(
+	const std::string& text,
+	snake::common::Position pos,
+	uint8_t size,
+	snake::common::Color color) {
+		
+
+}
 void SFMLRenderer::display() {
 	m_window.display();
 }

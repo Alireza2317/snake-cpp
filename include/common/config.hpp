@@ -9,7 +9,7 @@ namespace snake::config {
 		inline constexpr uint16_t NUM_TILES_X = 32;
 		inline constexpr uint16_t NUM_TILES_Y = 24;
 		inline constexpr uint16_t INITIAL_SNAKE_LENGTH = 7;
-		inline constexpr float DELAY = 0.2f;
+		inline constexpr float DELAY = 0.09f;
 	} // namespace game
 	namespace colors {
 		using namespace snake::common;
