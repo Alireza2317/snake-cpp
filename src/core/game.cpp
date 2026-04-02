@@ -1,9 +1,7 @@
 #include "core/game.hpp"
-#include "common/config.hpp"
 #include "common/types.hpp"
 #include "core/snake.hpp"
 #include "core/world.hpp"
-#include "interfaces/renderer.hpp"
 
 SnakeGame::SnakeGame() : SnakeGame(Snake(), World()) {
 }
@@ -86,19 +84,11 @@ void SnakeGame::handle_command(Command cmd) {
 			return;
 	}
 }
+
 void SnakeGame::reset() {
 	m_snake = Snake();
 
 	m_score = 0;
 	m_state = GameState::Running;
 	m_world.spawn_food(m_snake.parts);
-}
-
-void SnakeGame::render(IRenderer& renderer) {
-	renderer.draw_square(m_world.food, snake::config::colors::FOOD);
-
-	for (auto it = m_snake.parts.begin() + 1; it < m_snake.parts.end(); it++) {
-		renderer.draw_square(*it, snake::config::colors::SNAKE);
-	}
-	renderer.draw_square(m_snake.parts.front(), snake::config::colors::SNAKE_HEAD);
 }
