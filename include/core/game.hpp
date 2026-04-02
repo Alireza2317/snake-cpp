@@ -30,4 +30,9 @@ class SnakeGame {
 	void handle_command(Command cmd);
 	void reset();
 	bool is_game_over() const;
+
+	const Snake& get_snake() const;
+	const World& get_world() const;
+	uint16_t get_score() const;
+	GameState get_state() const;
 };

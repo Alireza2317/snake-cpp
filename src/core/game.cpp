@@ -92,3 +92,19 @@ void SnakeGame::reset() {
 	m_state = GameState::Running;
 	m_world.spawn_food(m_snake.parts);
 }
+
+const Snake& SnakeGame::get_snake() const {
+	return m_snake;
+}
+
+const World& SnakeGame::get_world() const {
+	return m_world;
+}
+
+uint16_t SnakeGame::get_score() const {
+	return m_score;
+}
+
+snake::common::GameState SnakeGame::get_state() const {
+	return m_state;
+}
