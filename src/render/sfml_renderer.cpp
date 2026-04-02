@@ -66,8 +66,10 @@ void SFMLRenderer::draw_square(snake::common::Position pos, snake::common::Color
 
 void SFMLRenderer::put_text(
 	const std::string& text, snake::common::Position pos, snake::common::Color color) {
+	constexpr auto TILE_SIZE = snake::config::game::TILE_SIZE;
+
 	sf::Text sf_txt{text, m_font, snake::config::game::FONT_SIZE};
-	sf_txt.setPosition(pos.x, pos.y);
+	sf_txt.setPosition(pos.x * TILE_SIZE, pos.y * TILE_SIZE);
 	sf_txt.setFillColor(to_sf_color(color));
 
 	m_window.draw(sf_txt);
