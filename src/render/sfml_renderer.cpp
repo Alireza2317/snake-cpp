@@ -5,6 +5,9 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <filesystem>
+
+const std::filesystem::path PROJECT_ROOT = PROJECT_ROOT_PATH;
 
 static sf::Color to_sf_color(snake::common::Color color) {
 	using Color_snake = snake::common::Color;
@@ -38,7 +41,16 @@ static sf::Color to_sf_color(snake::common::Color color) {
 SFMLRenderer::SFMLRenderer(uint16_t width, uint16_t height, const std::string& title)
 	: m_window(sf::VideoMode(width, height), title) {
 	m_window.setFramerateLimit(snake::config::window::MAX_FPS);
+	load_font();
 }
+
+void SFMLRenderer::load_font() {
+	std::filesystem::path font_path = PROJECT_ROOT / "assets" / "fonts" / "font.ttf";
+	if (not m_font.loadFromFile(font_path.string())) {
+		throw std::runtime_error("Could not find font at " + font_path.string());
+	}
+}
+
 void SFMLRenderer::clear() {
 	m_window.clear(sf::Color::Black);
 }
@@ -53,11 +65,8 @@ void SFMLRenderer::draw_square(snake::common::Position pos, snake::common::Color
 }
 
 void SFMLRenderer::put_text(
-	const std::string& text,
-	snake::common::Position pos,
-	uint8_t size,
-	snake::common::Color color) {
-	sf::Text sf_txt{text, m_font, size};
+	const std::string& text, snake::common::Position pos, snake::common::Color color) {
+	sf::Text sf_txt{text, m_font, snake::config::game::FONT_SIZE};
 	sf_txt.setPosition(pos.x, pos.y);
 	sf_txt.setFillColor(to_sf_color(color));
 

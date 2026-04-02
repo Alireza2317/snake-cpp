@@ -3,22 +3,21 @@
 #include "interfaces/renderer.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/View.hpp>
 
 class SFMLRenderer : public IRenderer {
   private:
 	sf::RenderWindow m_window;
 	sf::Font m_font;
 
+	void load_font();
+
   public:
 	SFMLRenderer(uint16_t width, uint16_t height, const std::string& title);
-
 	virtual void clear() override;
 	virtual void draw_square(snake::common::Position pos, snake::common::Color color) override;
 	virtual void put_text(
-		const std::string& text,
-		snake::common::Position pos,
-		uint8_t size,
-		snake::common::Color color) override;
+		const std::string& text, snake::common::Position pos, snake::common::Color color) override;
 	virtual void display() override;
 	virtual void close() override;
 	virtual bool is_open() const override;
