@@ -3,6 +3,7 @@
 #include "common/types.hpp"
 #include "core/game.hpp"
 #include "interfaces/renderer.hpp"
+#include "render/game_view.hpp"
 #include "render/sfml_renderer.hpp"
 #include <memory>
 #include <string>
@@ -11,6 +12,7 @@ class App {
   private:
 	std::unique_ptr<IRenderer> m_renderer;
 	SnakeGame m_game;
+	GameView m_game_view;
 
   public:
 	App();
@@ -54,7 +56,8 @@ inline void App::run() {
 		}
 
 		m_renderer->clear();
-		m_game.render(*m_renderer);
+
+		m_game_view.draw(m_game, *m_renderer);
 
 		m_renderer->display();
 	}
