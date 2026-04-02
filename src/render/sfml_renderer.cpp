@@ -54,6 +54,7 @@ void SFMLRenderer::load_font() {
 void SFMLRenderer::clear() {
 	m_window.clear(sf::Color::Black);
 }
+
 void SFMLRenderer::draw_square(snake::common::Position pos, snake::common::Color color) {
 	constexpr auto TILE_SIZE = snake::config::game::TILE_SIZE;
 
@@ -74,17 +75,21 @@ void SFMLRenderer::put_text(
 
 	m_window.draw(sf_txt);
 }
+
 void SFMLRenderer::display() {
 	m_window.display();
 }
+
 bool SFMLRenderer::is_open() const {
 	return m_window.isOpen();
 }
+
 snake::common::Command SFMLRenderer::poll_command() {
 	sf::Event event;
 	while (m_window.pollEvent(event)) {
 		if (event.type == sf::Event::Closed) {
 			close();
+			return snake::common::Command::Quit;
 		}
 		if (event.type == sf::Event::KeyPressed) {
 			switch (event.key.code) {
