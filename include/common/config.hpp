@@ -10,7 +10,9 @@ namespace snake::config {
 		inline constexpr uint16_t NUM_TILES_Y = 24;
 		inline constexpr uint16_t INITIAL_SNAKE_LENGTH = 7;
 		inline constexpr float DELAY = 0.09f;
+		inline constexpr uint8_t FONT_SIZE = 18;
 	} // namespace game
+
 	namespace colors {
 		using namespace snake::common;
 		inline constexpr Color BACKGROUND = Color::Black;
@@ -23,8 +25,9 @@ namespace snake::config {
 	} // namespace colors
 
 	namespace window {
-		inline constexpr uint16_t WIDTH = game::NUM_TILES_X * game::TILE_SIZE;
-		inline constexpr uint16_t HEIGHT = game::NUM_TILES_Y * game::TILE_SIZE;
+		inline constexpr uint16_t WIDTH = game::NUM_TILES_X * game::TILE_SIZE + 6 * game::TILE_SIZE;
+		inline constexpr uint16_t HEIGHT =
+			game::NUM_TILES_Y * game::TILE_SIZE + 6 * game::TILE_SIZE;
 		inline constexpr std::string_view TITLE = "Snake Game";
 		inline constexpr uint8_t MAX_FPS = 20;
 	} // namespace window
