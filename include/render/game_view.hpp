@@ -40,6 +40,12 @@ class GameView {
 			renderer.draw_square(to_screen({-1, (int16_t)y}), colors::WALL);
 			renderer.draw_square(to_screen({(int16_t)world.width(), (int16_t)y}), colors::WALL);
 		}
+
+		// Obstacles
+		for (const auto& obs : world.obstacles()) {
+			renderer.draw_square(to_screen(obs), colors::WALL);
+		}
+
 	}
 
 	void draw_food(snake::common::Position food, IRenderer& renderer) {
