@@ -9,6 +9,9 @@
 
 World::World() : World(snake::config::game::NUM_TILES_X, snake::config::game::NUM_TILES_Y) {
 }
+World::World(std::vector<Position> obstacles)
+	: World(snake::config::game::NUM_TILES_X, snake::config::game::NUM_TILES_Y, obstacles) {
+}
 World::World(uint16_t width, uint16_t height, std::vector<Position> obstacles)
 	: m_width(width), m_height(height), m_obstacles(std::move(obstacles)) {
 }
