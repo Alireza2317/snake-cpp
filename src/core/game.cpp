@@ -69,16 +69,16 @@ void SnakeGame::handle_command(Command cmd) {
 
 	switch (cmd) {
 		case Command::MoveLeft:
-			m_snake.turn(Direction::Left);
+			m_snake.attempt_turn(Direction::Left);
 			break;
 		case Command::MoveUp:
-			m_snake.turn(Direction::Up);
+			m_snake.attempt_turn(Direction::Up);
 			break;
 		case Command::MoveRight:
-			m_snake.turn(Direction::Right);
+			m_snake.attempt_turn(Direction::Right);
 			break;
 		case Command::MoveDown:
-			m_snake.turn(Direction::Down);
+			m_snake.attempt_turn(Direction::Down);
 			break;
 		default:
 			return;

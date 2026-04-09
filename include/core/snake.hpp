@@ -20,7 +20,7 @@ class Snake {
 	explicit Snake(SnakeBody body);
 
 	void move();
-	void turn(Direction new_direction);
+	void attempt_turn(Direction new_direction);
 	void grow();
 	bool hit_self();
 };

@@ -55,7 +55,7 @@ void Snake::move() {
 	parts.pop_back();
 }
 
-void Snake::turn(Direction new_direction) {
+void Snake::attempt_turn(Direction new_direction) {
 	m_pending_direction = new_direction;
 }
 
