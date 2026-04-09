@@ -31,11 +31,23 @@ common::Position Snake::get_moved_head() {
 		case Direction::Down:
 			new_head.y++;
 			break;
+		default:
+			break;
 	}
 	return new_head;
 }
 
 void Snake::move() {
+	static auto is_horizontal = [](Direction d) {
+		return d == Direction::Right or d == Direction::Left;
+	};
+
+	if (m_pending_direction != Direction::None) {
+		if (is_horizontal(m_pending_direction) != is_horizontal(direction)) {
+			direction = m_pending_direction;
+		}
+	}
+
 	Position new_head_pos = get_moved_head();
 	parts.insert(parts.begin(), new_head_pos);
 
@@ -44,13 +56,7 @@ void Snake::move() {
 }
 
 void Snake::turn(Direction new_direction) {
-	static auto is_horizontal = [](Direction d) constexpr {
-		return d == Direction::Right or d == Direction::Left;
-	};
-
-	if (is_horizontal(new_direction) != is_horizontal(direction)) {
-		direction = new_direction;
-	}
+	m_pending_direction = new_direction;
 }
 
 void Snake::grow() {

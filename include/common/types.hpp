@@ -26,7 +26,7 @@ namespace snake::common {
 		Transparent
 	};
 
-	enum class Direction { Left, Up, Right, Down };
+	enum class Direction : int8_t { Left, Up, Right, Down, None };
 
 	enum class GameState { Running, Paused, GameOver };
 

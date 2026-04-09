@@ -9,6 +9,7 @@ class Snake {
 
   private:
 	Position m_left_over_tail;
+	Direction m_pending_direction{Direction::None};
 	Position get_moved_head();
 
   public:
